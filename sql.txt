@@ -1,0 +1,95 @@
+-- Eliminar base de datos si existe
+DROP DATABASE IF EXISTS club_jasah;
+CREATE DATABASE club_jasah;
+USE club_jasah;
+
+-- Crear la tabla de tipos de usuario
+CREATE TABLE tipo_usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- Insertar tipos de usuario
+INSERT INTO tipo_usuario (nombre) VALUES 
+('Administrador'),  -- Ahora añadimos el Administrador
+('Conquistador'),  
+('Aspirantes a guía mayor'), 
+('Director');
+
+-- Crear la tabla de personas
+CREATE TABLE persona (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- ID con AUTO_INCREMENT
+    cedula VARCHAR(10) NOT NULL UNIQUE, -- Cédula única pero no primaria
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    telefono VARCHAR(10),
+    nacimiento DATE,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    tipo_usuario_id INT NOT NULL,
+    foto_perfil VARCHAR(255) DEFAULT NULL,
+    FOREIGN KEY (tipo_usuario_id) REFERENCES tipo_usuario(id)
+);
+
+-- Crear la tabla de usuarios (login)
+CREATE TABLE usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- ID autoincrementable
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    contraseña VARCHAR(100) NOT NULL,
+    cedula VARCHAR(10) NOT NULL,  -- Relación con la cédula (única pero no PK)
+    persona_id INT NOT NULL,
+    FOREIGN KEY (persona_id) REFERENCES persona(id) ON DELETE CASCADE
+);
+
+-- Insertar persona Admin (ya no es necesario un trigger)
+INSERT INTO persona (cedula, nombre, apellido, telefono, nacimiento, correo, tipo_usuario_id) 
+VALUES ('0000000000', 'Admin', 'Principal', '0999999999', '2000-01-01', 'admin@club.com', 1);
+
+-- Obtener el ID del administrador insertado
+SET @admin_id = LAST_INSERT_ID();
+
+-- Insertar usuario administrador manualmente
+INSERT INTO usuario (usuario, contraseña, cedula, persona_id) 
+VALUES ('admin', SHA2('admin123', 256), '0000000000', @admin_id);
+
+-- Crear la tabla de tarjetas (acciones permitidas por rol)
+CREATE TABLE tarjetas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    color VARCHAR(20) NOT NULL,
+    descripcion TEXT
+);
+
+-- Crear tabla intermedia para asociar tarjetas a roles
+CREATE TABLE tipo_usuario_tarjetas (
+    tipo_usuario_id INT NOT NULL,
+    tarjeta_id INT NOT NULL,
+    FOREIGN KEY (tipo_usuario_id) REFERENCES tipo_usuario(id),
+    FOREIGN KEY (tarjeta_id) REFERENCES tarjetas(id),
+    PRIMARY KEY (tipo_usuario_id, tarjeta_id)
+);
+
+-- Insertar tarjetas en el sistema
+INSERT INTO tarjetas (nombre, color, descripcion) VALUES
+('Registro de Reclutas', 'primary', 'Permite registrar nuevos reclutas al sistema.'),
+('Estadísticas', 'success', 'Visualiza estadísticas sobre el rendimiento del club.'),
+('Eventos', 'warning', 'Revisa los eventos próximos del club.'),
+('Cerrar Sesión', 'danger', 'Permite cerrar sesión en el sistema.');
+
+-- Asignar tarjetas a roles
+-- Ahora la inserción de tarjetas se hará correctamente de acuerdo a los tipos de usuario disponibles.
+
+-- Admin tiene acceso a todas las tarjetas (tipo_usuario_id = 1)
+INSERT INTO tipo_usuario_tarjetas (tipo_usuario_id, tarjeta_id)
+SELECT 1, id FROM tarjetas;
+
+-- Conquistador solo ve eventos (tipo_usuario_id = 2)
+INSERT INTO tipo_usuario_tarjetas (tipo_usuario_id, tarjeta_id)
+SELECT 2, id FROM tarjetas WHERE nombre = 'Eventos';
+
+-- Aspirantes ven estadísticas (tipo_usuario_id = 3)
+INSERT INTO tipo_usuario_tarjetas (tipo_usuario_id, tarjeta_id)
+SELECT 3, id FROM tarjetas WHERE nombre = 'Estadísticas';
+
+-- Director tiene acceso a registro y estadísticas (tipo_usuario_id = 4)
+INSERT INTO tipo_usuario_tarjetas (tipo_usuario_id, tarjeta_id)
+SELECT 4, id FROM tarjetas WHERE nombre IN ('Registro de Reclutas', 'Estadísticas');
