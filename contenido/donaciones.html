@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://www.paypal.com/sdk/js?client-id=Aeptt9iTPod0sMGm0ojVBIguqHSJanpJBZbfehvVDvfbMm6XcutlnNPBo6nCsbL8joLlh9brL2EkJFos&currency=USD"></script>
     <style>
-         /* Estilo del encabezado */
-         .header {
+        /* Estilos responsivos */
+        .header {
             background: url('../assets/imagen/21.jpg') no-repeat center center/cover;
             height: 60vh;
             display: flex;
@@ -20,24 +20,7 @@
             font-size: 2rem;
             font-weight: bold;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-            transition: background 0.5s ease-in-out;
         }
-
-        .header:hover {
-            filter: brightness(80%);
-        }
-
-        /* Sección de cita */
-        .bg-light {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-            transition: background-color 0.5s ease;
-        }
-
-        .bg-light:hover {
-            background-color: #e9ecef;
-        }
-
         /* Sección de donaciones */
         #donar {
             display: flex;
@@ -46,34 +29,55 @@
             text-align: center;
             margin-top: 50px;
         }
-
-        /* Botón de PayPal */
-        #paypal-button-container {
+         /* Botón de PayPal */
+         #paypal-button-container {
             width: 50%;
             display: flex;
             justify-content: center;
             margin-top: 30px;
         }
 
-        /* Estilo del pie de página */
-        footer {
-            background-color: #0070ba;
-            color: white;
+        .conter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(139, 139, 139);
+            border-radius: 1rem;
             padding: 20px;
-            position: relative;
-            width: 100%;
-            bottom: 0;
-            text-align: center;
         }
 
-        /* Estilo del texto */
-        h2, p {
-            font-family: 'Arial', sans-serif;
+        .conter .img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 50%;
+        }
+
+        .conter .img img {
+            width: 100%;
+            border-radius: 1rem;
+        }
+
+        .conter .form {
+            flex: 1;
+            padding: 20px;
+            max-width: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .conter {
+                flex-direction: column;
+            }
+            .conter .img, .conter .form {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">Club Jasah</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -107,37 +111,32 @@
         <div id="paypal-button-container"></div>
     </section>
     
-    <section id="apoyo" class="container my-5">
-        <h2 class="text-center">Otras formas de ayudar</h2>
-        <p class="text-center">Además de donar, puedes apoyarnos de otras maneras:</p>
-        <ul>
-            <li>Voluntariado en nuestras actividades.</li>
-            <li>Donación de materiales y recursos.</li>
-            <li>Compartiendo nuestra misión con otros.</li>
-        </ul>
+    <section id="contacto" class="container conter my-5">
+        <div class="img">
+            <img src="../assets/imagen/fondo.jpg" alt="foto">
+        </div>
+        <div class="form"> 
+            <h2 class="text-center">Contáctanos</h2>
+            <p class="text-center">Si deseas colaborar con nosotros, escríbenos:</p>
+            <form action="control_apoyo/from_apoyo.php" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
     </section>
     
-    <section id="contacto" class="container my-5">
-        <h2 class="text-center">Contáctanos</h2>
-        <p class="text-center">Si deseas colaborar con nosotros, escríbenos:</p>
-        <form action="control_apollo/from_apoyo.php" method="post">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </section>
-    
-    <footer class="bg-primary text-white text-center p-3">
+    <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2025 Club Jasah. Todos los derechos reservados.</p>
     </footer>
     
