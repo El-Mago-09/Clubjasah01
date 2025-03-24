@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-.hero-section {
+.header-section {
     background: url('assets/imagen/fondo.jpg') center/cover no-repeat;
     height: 100vh;
     display: flex;
