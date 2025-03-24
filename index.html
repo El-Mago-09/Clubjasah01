@@ -1,69 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club JASAH</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club JASAH</title>
+<link rel="shortcut icon" href="assets/imagen/fondo.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<link rel="stylesheet" href="assets/styles/index.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Club JASAH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#actividades">Actividades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#donaciones">Donaciones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#login">¿Ya eres miembro?</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">Club JASAH</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="contenido/nosotros.html">Nosotros</a></li>
+<li class="nav-item"><a class="nav-link" href="contenido/actividades.html">Actividades</a></li>
+<li class="nav-item"><a class="nav-link" href="contenido/contacto.html">Contacto</a></li>
+<li class="nav-item"><a class="nav-link" href="inicio sesion/secion/login.html">¿Ya eres miembro?</a></li>
+</ul>
+</div>
+</div>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col text-center text-white">
-                    <h1 class="display-4 fw-bold">¡Bienvenidos al Club JASAH!</h1>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero Section -->
+<header class="hero-section">
+<div class="hero-content text-center">
+<h1 data-aos="fade-up">¡Bienvenidos al Club JASAH!</h1>
+<p data-aos="fade-up" data-aos-delay="200">Explora la naturaleza, desarrolla habilidades y vive experiencias inolvidables.</p>
+<a href="#nosotros" class="btn btn-primary mt-3" data-aos="fade-up" data-aos-delay="400">Conócenos</a>
+</div>
+</header>
 
-    <!-- Sección Nosotros -->
-    <section id="nosotros" class="container my-5">
-        <h2 class="text-center mb-4">¿Quiénes somos?</h2>
-        <p class="text-center">Somos el Club JASAH, una comunidad comprometida con la aventura, el servicio y el crecimiento personal.</p>
-    </section>
+<!-- Sobre Nosotros -->
+<section id="nosotros" class="container my-5">
+<div class="row">
+<div class="col-md-6" data-aos="fade-right">
+<h2>¿Quiénes somos?</h2>
+<p>Somos el Club JASAH, una comunidad comprometida con la aventura, el servicio y el crecimiento personal.
+Nos dedicamos a fomentar valores como la solidaridad, la responsabilidad y el trabajo en equipo a través de actividades
+recreativas y educativas. Nuestro objetivo es inspirar a jóvenes a desarrollar habilidades de liderazgo,
+fortalecer su espiritualidad y explorar el mundo que los rodea mediante experiencias inolvidables en la naturaleza.</p>
+</div>
+<div class="col-md-6" data-aos="fade-left">
+<img src="assets/imagen/8.jpg" class="img-fluid rounded" alt="Nosotros">
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-0">© 2024 Club JASAH - Todos los derechos reservados</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+<!-- ¿Qué Hacemos? -->
+<section id="que-hacemos" class="container my-5">
+<h2 class="text-center mb-4">¿Qué hacemos?</h2>
+<p class="text-center">En el Club JASAH realizamos diversas actividades que ayudan a desarrollar habilidades, fortalecer valores y fomentar la convivencia en la naturaleza. Algunas de nuestras principales áreas de acción incluyen:</p>
+<div class="row text-center">
+<div class="col-md-4" data-aos="fade-up">
+<i class="fas fa-tree fa-3x mb-3"></i>
+<h4>Exploración y Aventura</h4>
+<p>Organizamos excursiones y campamentos en los que aprendemos sobre la naturaleza y la vida al aire libre.</p>
+</div>
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+<i class="fas fa-users fa-3x mb-3"></i>
+<h4>Desarrollo de Liderazgo</h4>
+<p>Formamos líderes a través de talleres y actividades que fomentan la responsabilidad y el trabajo en equipo.</p>
+</div>
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+<i class="fas fa-hands-helping fa-3x mb-3"></i>
+<h4>Servicio a la Comunidad</h4>
+<p>Nos involucramos en proyectos comunitarios para ayudar a quienes más lo necesitan.</p>
+</div>
+</div>
+</section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Galería de Imágenes -->
+<section id="galeria" class="container my-5">
+<h2 class="text-center mb-4">Nuestra Galería</h2>
+<div class="swiper-container">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="assets/imagen/galeria1.jpg" class="img-fluid" alt="Galería 1"></div>
+<div class="swiper-slide"><img src="assets/imagen/galeria2.jpg" class="img-fluid" alt="Galería 2"></div>
+<div class="swiper-slide"><img src="assets/imagen/galeria3.jpg" class="img-fluid" alt="Galería 3"></div>
+<div class="swiper-slide"><img src="assets/imagen/galeria4.jpg" class="img-fluid" alt="Galería 4"></div>
+</div>
+<div class="swiper-pagination"></div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
+</section>
+
+<!-- Ubicación -->
+<section id="ubicacion" class="container my-5">
+<h2 class="text-center mb-4">Nuestra Ubicación</h2>
+<div class="row justify-content-center">
+<div class="col-md-8" data-aos="zoom-in">
+<div class="ratio ratio-16x9">
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.741391673485!2d-79.88119784616952!3d-2.239146122388245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d6e672fdf17eb%3A0x9e3a0b5c8caff3a!2sCamino%20al%20Sol%2C%20Isla%20Trinitaria%2C%20Guayaquil%2C%20Ecuador!5e0!3m2!1ses!2sus!4v1712611200000"
+allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+<p>Síguenos en redes sociales</p>
+<div>
+<a href="#" class="text-white mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+<a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+<a href="#" class="text-white mx-2"><i class="fab fa-youtube fa-2x"></i></a>
+</div>
+<p class="mt-2">&copy; 2024 Club JASAH - Todos los derechos reservados</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="assets/scripts/index.js"></script>
+<script>
+AOS.init();
+</script>
 </body>
 </html>
