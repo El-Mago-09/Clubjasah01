@@ -1,23 +1,17 @@
-/* Estilos Generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilo del Encabezado */
 .header-section {
     background: url('assets/imagen/fondo.jpg') center/cover no-repeat;
-    height: 100vh; /* Altura total de la pantalla */
+    height: 100vh;
     display: flex;
-    align-items: center; /* Centrado vertical */
-    justify-content: center; /* Centrado horizontal */
+    align-items: center;
+    justify-content: center;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -32,31 +26,37 @@ body {
     margin-bottom: 2rem;
 }
 
-.hero-content .btn {
-    padding: 10px 20px;
+#nosotros img {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.swiper-container {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.swiper-slide img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide img:hover {
+    transform: scale(1.1);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #fff;
+}
+
+.swiper-pagination-bullet {
+    background-color: #fff;
+}
+
+.swiper-pagination-bullet-active {
     background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
 }
 
-.hero-content .btn:hover {
-    background-color: #0056b3;
-}
-
-/* Estilo de la Sección "Sobre Nosotros" */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-}
-
-.my-5 {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+footer {
+    background: linear-gradient(to right, #000, #333);
 }
