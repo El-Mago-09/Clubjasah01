@@ -7,7 +7,7 @@ body {
 }
 
 .header-section {
-    background: url('assets/imagen/fondo.jpg') center/cover no-repeat;
+    background: url('assets/imagen/header.jpg') center/cover no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
