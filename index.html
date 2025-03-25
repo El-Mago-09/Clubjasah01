@@ -32,11 +32,13 @@
 
 <!-- Header Section -->
 <header class="header-section">
-<div class="hero-content text-center">
-<h1 data-aos="fade-up">¡Bienvenidos al Club JASAH!</h1>
-<p data-aos="fade-up" data-aos-delay="200">Explora la naturaleza, desarrolla habilidades y vive experiencias inolvidables.</p>
-<a href="#nosotros" class="btn btn-primary mt-3" data-aos="fade-up" data-aos-delay="400">Conócenos</a>
-</div>
+    <img src="assets/imagen/8.jpg" class="header-image img-fluid" alt="Nosotros">
+    <div class="overlay"></div> <!-- Capa semi-transparente -->
+    <div class="hero-content text-center">
+        <h1 data-aos="fade-up">Bienvenidos al Club <span class="dynamic-word">JASAH</span>!</h1>
+        <p class="typewriter" data-aos="fade-up" data-aos-delay="200">Explora la naturaleza, desarrolla habilidades y vive experiencias inolvidables.</p>
+        <a href="#nosotros" class="btn btn-primary mt-3" data-aos="fade-up" data-aos-delay="400">Conócenos</a>
+    </div>
 </header>
 
 <!-- Sobre Nosotros -->
@@ -125,7 +127,23 @@ allowfullscreen="" loading="lazy"></iframe>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="assets/scripts/index.js"></script>
 <script>
+// Inicializar AOS
 AOS.init();
+
+// Animación de texto dinámico (JASAH -> Fuerte, Valiente, Inspirador)
+document.addEventListener('DOMContentLoaded', function () {
+    const words = ['Fuerte', 'Valiente', 'Inspirador'];
+    const wordElement = document.querySelector('.dynamic-word');
+
+    let currentIndex = 0;
+
+    function changeWord() {
+        wordElement.textContent = words[currentIndex];
+        currentIndex = (currentIndex + 1) % words.length;
+    }
+
+    setInterval(changeWord, 2000); // Cambia cada 2 segundos
+});
 </script>
 </body>
 </html>
