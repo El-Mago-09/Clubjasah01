@@ -132,17 +132,103 @@ AOS.init();
 
 // Animación de texto dinámico (JASAH -> Fuerte, Valiente, Inspirador)
 document.addEventListener('DOMContentLoaded', function () {
+    // Inicializar AOS (Animate On Scroll)
+    AOS.init();
+
+    // Animación de Título Dinámico
     const words = ['Fuerte', 'Valiente', 'Inspirador'];
     const wordElement = document.querySelector('.dynamic-word');
 
-    let currentIndex = 0;
+    if (wordElement) {
+        let currentIndex = 0;
 
-    function changeWord() {
-        wordElement.textContent = words[currentIndex];
-        currentIndex = (currentIndex + 1) % words.length;
+        function changeWord() {
+            wordElement.textContent = words[currentIndex];
+            currentIndex = (currentIndex + 1) % words.length;
+        }
+
+        setInterval(changeWord, 2000); // Cambia cada 2 segundos
     }
 
-    setInterval(changeWord, 2000); // Cambia cada 2 segundos
+    // Descripción Dinámica con Efecto de Máquina de Escribir
+    const descriptions = [
+        "Explora la naturaleza",
+        "Desarrolla habilidades",
+        "Vive experiencias inolvidables"
+    ];
+    const descriptionElement = document.querySelector('.typewriter');
+
+    if (descriptionElement) {
+        let currentDescriptionIndex = 0;
+
+        function typeWriterEffect(text, element, callback) {
+            let i = 0;
+            element.textContent = ''; // Limpiar el contenido anterior
+            element.style.borderRight = '0.15em solid white'; // Mostrar el cursor
+
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        element.style.borderRight = 'none'; // Ocultar el cursor
+                        callback();
+                    }, 1000); // Espera antes de borrar el texto
+                }
+            }, 80); // Velocidad de escritura (más lenta)
+        }
+
+        function eraseText(element, callback) {
+            let text = element.textContent;
+            let i = text.length;
+
+            element.style.borderRight = '0.15em solid white'; // Mostrar el cursor durante el borrado
+            const interval = setInterval(() => {
+                if (i > 0) {
+                    element.textContent = text.substring(0, i - 1);
+                    i--;
+                } else {
+                    clearInterval(interval);
+                    element.style.borderRight = 'none'; // Ocultar el cursor
+                    callback();
+                }
+            }, 40); // Velocidad de borrado (más lenta)
+        }
+
+        function updateDescription() {
+            const currentDescription = descriptions[currentDescriptionIndex];
+            typeWriterEffect(currentDescription, descriptionElement, () => {
+                eraseText(descriptionElement, () => {
+                    currentDescriptionIndex = (currentDescriptionIndex + 1) % descriptions.length;
+                    updateDescription();
+                });
+            });
+        }
+
+        updateDescription(); // Iniciar el ciclo de descripción dinámica
+    }
+
+    // Efecto Parallax en el Encabezado
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY;
+        const header = document.querySelector('.header-section');
+        if (header) {
+            header.style.backgroundPositionY = `${scrollPosition * 0.3}px`;
+        }
+    });
+
+    // Animación de botón "Conócenos"
+    const heroButton = document.querySelector('.hero-content .btn');
+    if (heroButton) {
+        heroButton.addEventListener('mouseenter', () => {
+            heroButton.style.transform = 'scale(1.1)';
+        });
+        heroButton.addEventListener('mouseleave', () => {
+            heroButton.style.transform = 'scale(1)';
+        });
+    }
 });
 </script>
 </body>
