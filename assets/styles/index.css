@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -30,6 +31,25 @@ body {
 
 /* Capa Semi-Transparente */
 .overlay {
+=======
+/* Hero Section */
+.hero {
+    background: url('../imagen/3.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    background-attachment: fixed; /* Esto ayuda a que la imagen se mantenga fija mientras se hace scroll */
+}
+
+
+.hero::before {
+    content: "";
+>>>>>>> 56c8cf6 (hice el envia a el gmail de el form de apoyo)
     position: absolute;
     top: 0;
     left: 0;

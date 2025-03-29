@@ -121,15 +121,15 @@
             <form action="control_apoyo/from_apoyo.php" method="post">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" required>
+                    <input type="text" name="nombre" class="form-control" id="nombre" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="email" name="email" class="form-control" id="email" required>
                 </div>
                 <div class="mb-3">
                     <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                    <textarea class="form-control" name="mensaje" id="mensaje" rows="3" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
